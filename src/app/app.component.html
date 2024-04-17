@@ -1,22 +1,31 @@
 <div class="font-crimson-text items-center">
-  <header class="container">
+  <header class="container my-0 mx-auto">
     <nav class="flex justify-between items-center py-4 px-8">
       <span class="text-3xl uppercase">Movies</span>
       <div class="flex gap-4">
-        <a href="/" class="text-sm uppercase hover:text-[#757575] transition">
+        <button
+          (click)="routeHome()"
+          class="text-base uppercase hover:text-[#757575] transition"
+        >
           Home
-        </a>
-        <a href="/" class="text-sm uppercase hover:text-[#757575] transition">
+        </button>
+        <button
+          (click)="routeMovies()"
+          class="text-base uppercase hover:text-[#757575] transition"
+        >
           Search
-        </a>
-        <a href="/" class="text-sm uppercase hover:text-[#757575] transition">
+        </button>
+        <button
+          (click)="routeFavorites()"
+          class="text-base uppercase hover:text-[#757575] transition"
+        >
           Favorites
-        </a>
+        </button>
       </div>
       <div class="flex justify-center items-center gap-5">
-        <ul class="socials list">
+        <ul class="socials">
           <li class="socials__item">
-            <a class="socials__link link" href="">
+            <a class="socials__link" href="">
               <svg
                 class="socials__icon socials__icon--gray"
                 width="20"
@@ -27,7 +36,7 @@
             </a>
           </li>
           <li class="socials__item">
-            <a class="socials__link link" href="">
+            <a class="socials__link" href="">
               <svg
                 class="socials__icon socials__icon--gray"
                 width="20"
@@ -38,7 +47,7 @@
             </a>
           </li>
           <li class="socials__item">
-            <a class="socials__link link" href="">
+            <a class="socials__link" href="">
               <svg
                 class="socials__icon socials__icon--gray"
                 width="20"
@@ -49,7 +58,7 @@
             </a>
           </li>
           <li class="socials__item">
-            <a class="socials__link link" href="">
+            <a class="socials__link" href="">
               <svg
                 class="socials__icon socials__icon--gray"
                 width="20"
@@ -63,11 +72,11 @@
       </div>
     </nav>
   </header>
-  <div class="line">
-    <div></div>
-  </div>
-  <main></main>
+  <div class="line"></div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
   <footer class="container">
-    <div>Lorem ipsum dolor sit amet.</div>
+    <div>Footer Lorem ipsum dolor sit amet.</div>
   </footer>
 </div>
