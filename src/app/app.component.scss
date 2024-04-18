@@ -37,7 +37,7 @@
   @apply blur-sm;
 }
 
-.current::after {
+.active::after {
   content: "";
   position: absolute;
   width: 100%;

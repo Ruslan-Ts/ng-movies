@@ -1,6 +1,8 @@
 <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8">
   @for (movie of movies; track movie.id) {
-  <li class="flex flex-col items-center">
+  <li
+    class="flex flex-col items-center shadow-sm hover:shadow-xl hover:scale-105 transition-all"
+  >
     <img
       [src]="path + movie.poster_path"
       [alt]="movie.original_title"

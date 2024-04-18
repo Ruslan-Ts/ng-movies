@@ -3,24 +3,28 @@
     <nav class="flex justify-between items-center py-4 px-8">
       <span class="text-3xl uppercase font-black">Movies</span>
       <div class="flex gap-4 font-bold">
-        <button
-          (click)="routeHome()"
-          class="relative current text-base hover:text-[#757575] transition"
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="relative text-base hover:text-[#757575] transition"
         >
           Home
-        </button>
-        <button
-          (click)="routeMovies()"
+        </a>
+        <a
+          routerLink="/movies"
+          routerLinkActive="active"
           class="relative text-base hover:text-[#757575] transition"
         >
           Search
-        </button>
-        <button
-          (click)="routeFavorites()"
+        </a>
+        <a
+          routerLink="/favorites"
+          routerLinkActive="active"
           class="relative text-base hover:text-[#757575] transition"
         >
           Favorites
-        </button>
+        </a>
       </div>
       <div class="flex justify-center items-center gap-5">
         <ul class="socials">
