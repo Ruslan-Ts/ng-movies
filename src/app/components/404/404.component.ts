@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './404.component.html',
   styleUrl: './404.component.scss'
 })
-export class 404Component {
+export class NotFoundComponent {
 
 }

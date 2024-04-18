@@ -33,6 +33,18 @@
 
 .line {
   background-color: #75757576;
-  height: 50px;
-  @apply blur;
+  height: 10px;
+  @apply blur-sm;
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #757575;
+  left: 0;
+  top: 25px;
+  @apply blur-sm;
 }

@@ -1,23 +1,23 @@
 <div class="font-crimson-text items-center">
   <header class="container my-0 mx-auto">
     <nav class="flex justify-between items-center py-4 px-8">
-      <span class="text-3xl uppercase">Movies</span>
-      <div class="flex gap-4">
+      <span class="text-3xl uppercase font-black">Movies</span>
+      <div class="flex gap-4 font-bold">
         <button
           (click)="routeHome()"
-          class="text-base uppercase hover:text-[#757575] transition"
+          class="relative current text-base hover:text-[#757575] transition"
         >
           Home
         </button>
         <button
           (click)="routeMovies()"
-          class="text-base uppercase hover:text-[#757575] transition"
+          class="relative text-base hover:text-[#757575] transition"
         >
           Search
         </button>
         <button
           (click)="routeFavorites()"
-          class="text-base uppercase hover:text-[#757575] transition"
+          class="relative text-base hover:text-[#757575] transition"
         >
           Favorites
         </button>
@@ -76,6 +76,7 @@
   <main>
     <router-outlet></router-outlet>
   </main>
+  <div class="line"></div>
   <footer class="container">
     <div>Footer Lorem ipsum dolor sit amet.</div>
   </footer>
