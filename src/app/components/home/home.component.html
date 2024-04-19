@@ -1,16 +1,27 @@
-<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8">
-  @for (movie of movies; track movie.id) {
-  <li
-    class="flex flex-col items-center shadow-sm hover:shadow-xl hover:scale-105 transition-all"
+<div class="mt-[70px]">
+  <div class="line">Most Popular Movies</div>
+  @if(!movies){
+  <div
+    class="h-[50vh] uppercase text-2xl flex items-center justify-center animate-pulse bg-gray-50"
   >
-    <img
-      [src]="path + movie.poster_path"
-      [alt]="movie.original_title"
-      class="w-full h-auto object-cover h-[350px]"
-    />
-    <p class="text-sm mt-2 font-bold">{{ movie.original_title }}</p>
-    <p class="text-sm font-light">Rating: {{ movie.vote_average }}</p>
-    <p class="text-sm font-light">Release date: {{ movie.release_date }}</p>
-  </li>
+    No content found
+  </div>
+  } @else {
+  <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-8">
+    @for (movie of movies; track movie.id) {
+    <li
+      class="flex flex-col items-center shadow-sm hover:shadow-xl transition-all"
+    >
+      <img
+        [src]="path + movie.poster_path"
+        [alt]="movie.original_title"
+        class="w-full h-auto object-cover h-[350px]"
+      />
+      <p class="text-sm mt-2 font-bold">{{ movie.original_title }}</p>
+      <p class="text-sm font-light">Rating: {{ movie.vote_average }}</p>
+      <p class="text-sm font-light">Release date: {{ movie.release_date }}</p>
+    </li>
+    }
+  </ul>
   }
-</ul>
+</div>

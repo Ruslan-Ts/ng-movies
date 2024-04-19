@@ -22,9 +22,6 @@ private subscription: Subscription = new Subscription();
       .subscribe({
         next: (data: any) => {
           this.movies = data.results;
-          console.log('====================================');
-          console.log(this.movies);
-          console.log('====================================');
         },
         error: (error) => {
           console.error('Error fetching movies:', error);

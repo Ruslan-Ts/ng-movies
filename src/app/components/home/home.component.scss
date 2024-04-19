@@ -1,0 +1,10 @@
+.line {
+  height: 50px;
+  @apply flex items-center justify-center text-xl text-black my-4 uppercase text-opacity-25;
+}
+
+li {
+  &:hover {
+    scale: 1.01;
+  }
+}

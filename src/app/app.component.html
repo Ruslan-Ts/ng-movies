@@ -1,32 +1,36 @@
-<div class="font-crimson-text items-center">
-  <header class="container my-0 mx-auto">
-    <nav class="flex justify-between items-center py-4 px-8">
-      <span class="text-3xl uppercase font-black">Movies</span>
+<div class="items-center">
+  <header class="header my-0 mx-auto z-50">
+    <nav class="flex justify-between items-center py-2 px-8">
+      <a routerLink="/" class="text-3xl uppercase font-black flex">
+        <svg width="30" height="30">
+          <use href="./assets/icons.svg#film-play"></use></svg
+        ><span>Movies</span></a
+      >
       <div class="flex gap-4 font-bold">
         <a
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          class="relative text-base hover:text-[#757575] transition"
+          class="link relative text-base hover:text-[#757575] transition"
         >
           Home
         </a>
         <a
           routerLink="/movies"
           routerLinkActive="active"
-          class="relative text-base hover:text-[#757575] transition"
+          class="link relative text-base hover:text-[#757575] transition"
         >
           Search
         </a>
         <a
           routerLink="/favorites"
           routerLinkActive="active"
-          class="relative text-base hover:text-[#757575] transition"
+          class="link relative text-base hover:text-[#757575] transition"
         >
           Favorites
         </a>
       </div>
-      <div class="flex justify-center items-center gap-5">
+      <div class="hidden sm:flex justify-center items-center gap-5">
         <ul class="socials">
           <li class="socials__item">
             <a class="socials__link" href="">
@@ -75,13 +79,15 @@
         </ul>
       </div>
     </nav>
+    <div class="line"></div>
   </header>
-  <div class="line"></div>
   <main>
     <router-outlet></router-outlet>
   </main>
-  <div class="line"></div>
-  <footer class="container">
-    <div>Footer Lorem ipsum dolor sit amet.</div>
+  <footer class="footer">
+    <div class="line"></div>
+    <div class="flex justify-center items-center">
+      Footer Lorem ipsum dolor sit amet.
+    </div>
   </footer>
 </div>
