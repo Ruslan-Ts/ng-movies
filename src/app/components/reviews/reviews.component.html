@@ -1,0 +1,22 @@
+<div>
+  @if(isLoading){
+  <div
+    class="h-[10vh] uppercase text-2xl flex items-center justify-center animate-pulse"
+  >
+    <div class="animate-spin text-slate-400 fill-slate-400">
+      <svg class="search-icon transition" width="60" height="60">
+        <use href="./assets/icons.svg#icon-search"></use>
+      </svg>
+    </div>
+  </div>
+  } @else {
+  <ul class="">
+    @for (review of reviews; track review.id) {
+    <li>
+      <p class="text-sm font-bold my-2">{{ review.author }}</p>
+      <p class="text-sm font-light">{{ review.content }}</p>
+    </li>
+    }
+  </ul>
+  }
+</div>

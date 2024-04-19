@@ -1,1 +1,61 @@
-<p>movie-details works!</p>
+<div class="mt-[70px] p-5">
+  @if(isLoading){
+  <div
+    class="h-[50vh] uppercase text-2xl flex items-center justify-center animate-pulse bg-gray-50"
+  >
+    <div class="animate-spin text-slate-400">
+      <svg class="search-icon transition" width="60" height="60">
+        <use href="./assets/icons.svg#icon-search"></use>
+      </svg>
+    </div>
+  </div>
+  } @else {
+
+  <div class="flex">
+    <img
+      [src]="path + movie.poster_path"
+      [alt]="movie.original_title"
+      class="object-cover h-[450px]"
+    />
+    <div class="flex flex-col gap-3 px-3">
+      <p class="text-md mt-2 font-bold">
+        {{ movie.original_title }}
+      </p>
+      <p class="text-sm mt-2 font-bold">
+        {{ movie.overview }}
+      </p>
+      <p class="text-sm mt-2 font-normal">
+        Genre: @for (genre of movie.genres; track genre.id) {
+        <span class="font-black">{{ genre.name }}, </span>
+        }
+      </p>
+      <p class="text-sm mt-2 font-normal">
+        Rating: <span class="font-black">{{ movie.vote_average }}</span>
+      </p>
+      <p class="text-sm mt-2 font-normal">
+        Release date: <span class="font-black">{{ movie.release_date }}</span>
+      </p>
+    </div>
+  </div>
+  <div class="flex gap-4 justify-center my-4">
+    <a
+      routerLink="cast"
+      routerLinkActive="active"
+      class="font-bold bg-slate-200 rounded-3xl py-1 px-2 hover:text-gray-500 hover:shadow-md transition"
+    >
+      Cast
+    </a>
+    <button
+      routerLink="reviews"
+      class="font-bold bg-slate-200 rounded-3xl py-1 px-2 hover:text-gray-500 hover:shadow-md transition"
+    >
+      Reviews
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+  <div
+    class="background"
+    style="background-image: url('{{ path + movie.backdrop_path }}')"
+  ></div>
+  }
+</div>

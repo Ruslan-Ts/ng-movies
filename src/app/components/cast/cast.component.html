@@ -1,0 +1,39 @@
+<div>
+  @if(isLoading){
+  <div
+    class="h-[10vh] uppercase text-2xl flex items-center justify-center animate-pulse"
+  >
+    <div class="animate-spin text-slate-400 fill-slate-400">
+      <svg class="search-icon transition" width="60" height="60">
+        <use href="./assets/icons.svg#icon-search"></use>
+      </svg>
+    </div>
+  </div>
+  } @else {
+  <ul class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-8 gap-4 mx-10">
+    @for (cast of casts; track cast.id) {
+    <li>
+      <a
+        class="flex flex-col justify-center items-center shadow-sm hover:shadow-xl transition-all"
+      >
+        @if(cast.profile_path){
+        <img
+          [src]="path + cast.profile_path"
+          [alt]="cast.original_name"
+          class="w-full h-auto object-cover"
+        />
+        } @else {
+        <img
+          src="https://images.pexels.com/photos/3825273/pexels-photo-3825273.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt="no image"
+          class="w-full h-auto object-cover"
+        />
+        }
+        <p class="cast-text font-light">{{ cast.original_name }}</p>
+        <p class="cast-text font-light">{{ cast.character }}</p>
+      </a>
+    </li>
+    }
+  </ul>
+  }
+</div>
