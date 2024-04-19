@@ -9,13 +9,15 @@
       </svg>
     </div>
   </div>
+  } @else if (casts.length ==0) {
+  <div class="h-[10vh] text-xl flex items-center justify-center animate-pulse">
+    There is no casts
+  </div>
   } @else {
   <ul class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-8 gap-4 mx-10">
     @for (cast of casts; track cast.id) {
     <li>
-      <a
-        class="flex flex-col justify-center items-center shadow-sm hover:shadow-xl transition-all"
-      >
+      <a class="flex flex-col justify-center items-center shadow-lg">
         @if(cast.profile_path){
         <img
           [src]="path + cast.profile_path"

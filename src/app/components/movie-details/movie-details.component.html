@@ -3,7 +3,7 @@
   <div
     class="h-[50vh] uppercase text-2xl flex items-center justify-center animate-pulse bg-gray-50"
   >
-    <div class="animate-spin text-slate-400">
+    <div class="animate-spin text-slate-400 fill-slate-400">
       <svg class="search-icon transition" width="60" height="60">
         <use href="./assets/icons.svg#icon-search"></use>
       </svg>
@@ -12,11 +12,18 @@
   } @else {
 
   <div class="flex">
+    @if(movie.poster_path){
     <img
       [src]="path + movie.poster_path"
       [alt]="movie.original_title"
       class="object-cover h-[450px]"
+    />}@else {
+    <img
+      src="https://images.pexels.com/photos/3825273/pexels-photo-3825273.jpeg?auto=compress&cs=tinysrgb&w=600"
+      alt="no image"
+      class="h-[450px] object-cover"
     />
+    }
     <div class="flex flex-col gap-3 px-3">
       <p class="text-md mt-2 font-bold">
         {{ movie.original_title }}
@@ -41,13 +48,14 @@
     <a
       routerLink="cast"
       routerLinkActive="active"
-      class="font-bold bg-slate-200 rounded-3xl py-1 px-2 hover:text-gray-500 hover:shadow-md transition"
+      class="relative font-bold text-xl rounded-3xl bg-transparent py-1 hover:text-gray-500 transition"
     >
       Cast
     </a>
     <button
       routerLink="reviews"
-      class="font-bold bg-slate-200 rounded-3xl py-1 px-2 hover:text-gray-500 hover:shadow-md transition"
+      routerLinkActive="active"
+      class="relative font-bold text-xl rounded-3xl bg-transparent py-1 hover:text-gray-500 transition"
     >
       Reviews
     </button>

@@ -9,7 +9,11 @@
       </svg>
     </div>
   </div>
-  } @else {
+  } @else if (reviews.length ==0) {
+  <div class="h-[10vh] text-xl flex items-center justify-center animate-pulse">
+    There is no reviews
+  </div>
+  }@else {
   <ul class="">
     @for (review of reviews; track review.id) {
     <li>

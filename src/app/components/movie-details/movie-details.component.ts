@@ -15,22 +15,24 @@ import { TransportIdService } from '../../transport-id.service';
   styleUrl: './movie-details.component.scss'
 })
 export class MovieDetailsComponent implements OnInit, OnDestroy {
-    
+  
   id!: number;
   movie!: Movie;
   isLoading: boolean = false;
   path = 'https://image.tmdb.org/t/p/w500/'
-private subscription: Subscription = new Subscription();
+  private subscription: Subscription = new Subscription();
   
-  constructor(private http: HttpClient, private route: ActivatedRoute, private idService: TransportIdService) {   
-    route.params.subscribe(params => this.id = params["id"]);
-    this.idService.setMovieId(this.id);
-  }
-
-
-  ngOnInit() {
-    this.isLoading = true;
-    this.subscription = this.http.get<any>(`https://api.themoviedb.org/3/movie/${this.id}?api_key=ac5224eaea5eecab8d1620632b5b6c95`)
+  constructor(private http: HttpClient,
+    private route: ActivatedRoute,
+    private idService: TransportIdService) {   
+      route.params.subscribe(params => this.id = params["id"]);
+      this.idService.setMovieId(this.id);
+    }
+    
+    
+    ngOnInit() {
+      this.isLoading = true;
+      this.subscription = this.http.get<any>(`https://api.themoviedb.org/3/movie/${this.id}?api_key=ac5224eaea5eecab8d1620632b5b6c95`)
       .subscribe({
         next: (data: any) => {
           this.movie = data;
@@ -41,11 +43,12 @@ private subscription: Subscription = new Subscription();
           this.isLoading = false;
         }
       });
-
+      
+    }
+    
+    ngOnDestroy() {
+      this.subscription.unsubscribe();
+    }
+  
   }
-
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-}
+  
