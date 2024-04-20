@@ -27,11 +27,28 @@
   </div>
 </div>
 } @else {
-<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-8 mb-[40px]">
+<ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mx-8 pb-[40px]">
   @for (movie of foundedMovies; track movie.id) {
-  <li>
+  <li class="relative transition-all">
+    @if(favorites){
+    <button
+      class="absolute right-2 top-1 p-1 rounded-xl z-30 transition-all hover:scale-125"
+      type="button"
+      (click)="switchFavorite(movie.id)"
+    >
+      @if(checkFavorite(movie.id)){
+      <svg width="28" height="28">
+        <use href="./assets/icons.svg#icon-heartFilled"></use>
+      </svg>
+      } @else{
+      <svg width="28" height="28">
+        <use href="./assets/icons.svg#icon-heartEmp"></use>
+      </svg>
+      }
+    </button>
+    } @else{ }
     <a
-      class="flex flex-col items-center shadow-sm hover:shadow-xl transition-all"
+      class="flex flex-col items-center shadow-sm overflow-hidden hover:shadow-xl transition-all"
       routerLink="{{ movie.id }}"
     >
       @if(movie.poster_path){
@@ -47,9 +64,15 @@
         class="w-full h-auto object-cover"
       />
       }
-      <p class="text-sm mt-2 font-bold">{{ movie.original_title }}</p>
-      <p class="text-sm font-light">Rating: {{ movie.vote_average }}</p>
-      <p class="text-sm font-light">Release date: {{ movie.release_date }}</p>
+      <p class="text-sm sm:text-xs 2xl:text-sm mt-2 font-bold truncate">
+        {{ movie.original_title }}
+      </p>
+      <p class="text-sm md:text-xs 2xl:text-sm font-light">
+        Rating: {{ movie.vote_average }}
+      </p>
+      <p class="text-sm md:text-xs 2xl:text-sm font-light">
+        Release date: {{ movie.release_date }}
+      </p>
     </a>
   </li>
   }

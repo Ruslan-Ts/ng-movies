@@ -42,6 +42,25 @@
       <p class="text-sm mt-2 font-normal">
         Release date: <span class="font-black">{{ movie.release_date }}</span>
       </p>
+      <p class="text-sm mt-2 font-normal">Companies:</p>
+      <ul class="flex flex-col md:flex-row gap-3">
+        @for (logo of movie.production_companies; track logo.id) {
+        <li>
+          @if(logo.logo_path){
+          <img
+            [src]="path + logo.logo_path"
+            [alt]="logo.name"
+            class="object-contain max-w-[180px] h-[30px]"
+          />}@else {
+          <img
+            src="https://louisville.edu/research/handaresearchlab/pi-and-students/photos/nocamera.png/image"
+            alt="no image"
+            class="h-[30px] object-cover"
+          />
+          }
+        </li>
+        }
+      </ul>
     </div>
   </div>
   <div class="flex gap-4 justify-center my-4">

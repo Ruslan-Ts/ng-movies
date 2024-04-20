@@ -29,7 +29,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       this.idService.setMovieId(this.id);
     }
     
-    
     ngOnInit() {
       this.isLoading = true;
       this.subscription = this.http.get<any>(`https://api.themoviedb.org/3/movie/${this.id}?api_key=ac5224eaea5eecab8d1620632b5b6c95`)

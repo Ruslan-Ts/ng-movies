@@ -1,5 +1,5 @@
-<div class="mt-[70px] mb-[40px]">
-  <div class="line">Most Popular Movies</div>
+<div class="mt-[70px] pb-[40px]">
+  <h2 class="line">Most Popular Movies</h2>
   @if(isLoading){
   <div
     class="h-[50vh] uppercase text-2xl flex items-center justify-center animate-pulse bg-gray-50"
@@ -11,11 +11,28 @@
     </div>
   </div>
   } @else {
-  <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-8">
+  <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mx-8">
     @for (movie of movies; track movie.id) {
-    <li>
+    <li class="relative transition-all">
+      @if(favorites){
+      <button
+        class="absolute right-2 top-1 p-1 rounded-xl z-30 transition-all hover:scale-125"
+        type="button"
+        (click)="switchFavorite(movie.id)"
+      >
+        @if(checkFavorite(movie.id)){
+        <svg width="28" height="28">
+          <use href="./assets/icons.svg#icon-heartFilled"></use>
+        </svg>
+        } @else{
+        <svg width="28" height="28">
+          <use href="./assets/icons.svg#icon-heartEmp"></use>
+        </svg>
+        }
+      </button>
+      } @else{ }
       <a
-        class="flex flex-col items-center shadow-sm hover:shadow-xl transition-all"
+        class="flex flex-col items-center shadow-sm overflow-hidden hover:shadow-xl transition-all"
         routerLink="movies/{{ movie.id }}"
       >
         @if(movie.backdrop_path){
@@ -31,9 +48,15 @@
           class="w-full h-auto object-cover"
         />
         }
-        <p class="text-sm mt-2 font-bold">{{ movie.original_title }}</p>
-        <p class="text-sm font-light">Rating: {{ movie.vote_average }}</p>
-        <p class="text-sm font-light">Release date: {{ movie.release_date }}</p>
+        <p class="text-sm sm:text-xs 2xl:text-sm mt-2 font-bold truncate">
+          {{ movie.original_title }}
+        </p>
+        <p class="text-sm md:text-xs 2xl:text-sm font-light">
+          Rating: {{ movie.vote_average }}
+        </p>
+        <p class="text-sm md:text-xs 2xl:text-sm font-light">
+          Release date: {{ movie.release_date }}
+        </p>
       </a>
     </li>
     }
