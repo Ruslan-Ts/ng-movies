@@ -52,7 +52,7 @@
           {{ movie.original_title }}
         </p>
         <p class="text-sm md:text-xs 2xl:text-sm font-light">
-          Rating: {{ movie.vote_average }}
+          Rating: {{ movie.vote_average.toFixed(1) }}
         </p>
         <p class="text-sm md:text-xs 2xl:text-sm font-light">
           Release date: {{ movie.release_date }}
